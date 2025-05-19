@@ -4,7 +4,15 @@ const { response } = require('express');
 
 loginRouter.post('/', async (request, response) => {
     const { email, password } = request.body;
-    console.log(email, password);
+    const userExist = await User.findOne({ email });
+    
+    if (!userExist) {
+        return response.status(401).json({ error: 'email o contraseña invalido' });
+    }
+
+    if (userExist.verified === false) {
+        return response.status(401).json({ error: 'tu email no ha sido verificado' });
+    }
 });
 
 module.exports = loginRouter;
