@@ -80,8 +80,10 @@ try {
         password: passwordInput.value,
     }
 
-    const response = await axios.post('/api/users', newUser);
-    console.log(response);
+    // const response = await axios.post('/api/users', newUser);
+    const { data } = await axios.post('/api/users', newUser);
+   
+    console.log(data);
 
 } catch (error) {
     console.log(error);
