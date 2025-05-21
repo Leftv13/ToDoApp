@@ -7,14 +7,14 @@ const path = require("path");
 const loginRouter = require("./controllers/login");
 const usersRouters = require("./controllers/users"); // Importa tus routers
 
-// (async () => {
-//   try {
-//     await mongoose.connect(process.env.MONGO_URI_TEST);
-//     console.log("Connected to MongoDB");
-//   } catch (error) {
-//     console.error("Error connecting to MongoDB:", error);
-//   }
-// })();
+(async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI_TEST);
+    console.log("Connected to MongoDB");
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+  }
+})();
 
 
 app.use(express.json());
