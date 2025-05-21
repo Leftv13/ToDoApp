@@ -1,11 +1,14 @@
-<!doctype html>
+<!-- <!doctype html> -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registro</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="/styles/output.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="../styles/output.css" />
+    
   </head>
   <body class="bg-zinc-50 h-screen">
     <nav
@@ -19,7 +22,7 @@
       class="flex pt-16 h-full max-w-7xl mx-auto justify-center items-center px-4"
     >
       <div class="hidden lg:flex w-2/4 justify-center items-center px-4">
-        <img class="w-3/4" src="/images/signup.svg" alt="image" />
+        <img class="w-3/4" src="/img/undraw_sign-up_qamz.svg" alt="image" />
       </div>
       <form
         id="form"
@@ -27,7 +30,7 @@
       >
         <div class="flex flex-col gap-2">
           <label class="font-bold" for="name-input"
-            >Nombre <span class="text-red-500 text-zinc-900">*</span></label
+            >Nombre <span class=" text-zinc-900">*</span></label
           >
           <input
             id="name-input"
@@ -37,13 +40,13 @@
             placeholder="Ingresa tu Nombre"
             class="rounded-lg p-2 bg-zinc-100 focus:outline-indigo-700"
           />
-          <p class="text-sm etxt-zinc-800">
+          <p class="info" class="text-sm etxt-zinc-800">
             Tanto el nombre como el apellido deben comenzar con mayusculas
           </p>
         </div>
         <div class="flex flex-col gap-2">
           <label class="font-bold" for="email-input"
-            >Email <span class="text-red-500 text-zinc-900">*</span></label
+            >Email <span class=" text-zinc-900">*</span></label
           >
           <input
             id="email-input"
@@ -57,7 +60,7 @@
         </div>
         <div class="flex flex-col gap-2">
           <label class="font-bold" for="password-input"
-            >Contraseña <span class="text-red-500 text-zinc-900">*</span></label
+            >Contraseña <span class=" text-zinc-900">*</span></label
           >
           <input
             id="password-input"
@@ -76,7 +79,7 @@
         <div class="flex flex-col gap-2">
           <label class="font-bold" for="password-input"
             >Confirmar contraseña
-            <span class="text-red-500 text-zinc-900">*</span></label
+            <span class=" text-zinc-900">*</span></label
           >
           <input
             id="match-input"
@@ -97,7 +100,8 @@
         </button>
       </form>
     </div>
-    <script src="/components/nav.js"></script>
+    <script src="../components/nav.js"></script>
     <script type="module" src="../components/notification.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
