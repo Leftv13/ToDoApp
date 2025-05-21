@@ -1,11 +1,11 @@
-const usersRouters = require('express').Router()
+const usersRouters = require('express').Router();
 
-usersRouters.post('/' , async (req, res) =>{
-    console.log(req.body);
-    const { name, email, password} = req.body
+usersRouters.post('/' , async (request, res) =>{
+    console.log(request.body);
+    const { name, email, password} = request.body
     console.log(name, email, password);
     
-    res.status(201).json({ message: 'Usuario creado exitosamente' }); 
+    res.status(200).json({ message: 'Usuario creado exitosamente' }); 
 })
 
-module.exports = usersRouters
+module.exports = usersRouters;

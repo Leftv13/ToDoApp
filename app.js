@@ -5,7 +5,7 @@ const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
 const loginRouter = require("./controllers/login");
-const usersRouters = require("./controllers/users"); // Importa tus routers
+const usersRouters = require("./controllers/users"); 
 
 (async () => {
   try {
