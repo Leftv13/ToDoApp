@@ -28,7 +28,7 @@ loginRouter.post("/", async (request, response) => {
     id: userExist.id
   };
 
-  const accesToken = jwt.sign(userForToken, process.env.ACCESS_TOKEN_SECRET, {
+  const accessToken = jwt.sign(userForToken, process.env.ACCESS_TOKEN_SECRET, {
     expiresIn: "1d"
   });
 
@@ -37,6 +37,8 @@ loginRouter.post("/", async (request, response) => {
     secure: process.env.NODE_ENV === 'production',
     httpOnly: true
   });
+
+  return response.sendStatus(200);
 });
 
 module.exports = loginRouter;

@@ -1,6 +1,6 @@
 const PAGE_URL = process.env.NODE_ENV === 'production'
     ? 'placeholder'
-    : 'http://127.0.0.1:3000'
+    : process.env.LOCAL_URL;
 
 
     //Windows endpoint = http://localhost:3000
