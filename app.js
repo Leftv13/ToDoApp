@@ -31,13 +31,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/users", usersRouters);
 app.use("/api/login", loginRouter);
 
-//Rutas FrontEnd
-app.use("/", express.static(path.resolve("views", "home")));
-app.use("/styles", express.static(path.resolve("views", "styles")));
-app.use("/signup", express.static(path.resolve("views", "signup")));
-app.use("/login", express.static(path.resolve("views", "login")));
-app.use("/components", express.static(path.resolve("views", "components")));
-app.use("/images", express.static(path.resolve("img")));
+// Rutas FrontEnd
+app.use("/", express.static(path.join(__dirname, "views", "home")));
+app.use('/styles', express.static(path.join(__dirname, "views", "styles")));
+app.use('/verify/:id/:token', express.static(path.join(__dirname, "views", "verify")));
+app.use("/signup", express.static(path.join(__dirname, "views", "signup")));
+app.use("/login", express.static(path.join(__dirname, "views", "login")));
+app.use("/components", express.static(path.join(__dirname, "views", "components")));
+app.use("/images", express.static(path.join(__dirname, "img")));
 
 //Morgan
 app.use(morgan('tiny'))
