@@ -1,9 +1,15 @@
-require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config();
 const express = require("express");
 const app = express();
+const cors = require('cors');
+const morgan = require('morgan');
+const cookieParser = require('cookie-parser')
 const mongoose = require("mongoose");
 const path = require("path");
 const loginRouter = require("./controllers/login");
+const usersRouters = require("./controllers/users"); 
+
 
 (async () => {
   try {
@@ -14,19 +20,33 @@ const loginRouter = require("./controllers/login");
   }
 })();
 
-// Middleware
+//Middleware
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
+  credentials: true
+}));
+app.use(cookieParser());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-//Rutas Frontend
-app.use("/", express.static(path.resolve("views", "home")));
-app.use("/styles", express.static(path.resolve("views", "styles")));
-app.use("/signup", express.static(path.resolve("views", "signup")));
-app.use("/login", express.static(path.resolve("views", "login")));
-app.use("/components", express.static(path.resolve("views", "components")));
-app.use("/images", express.static(path.resolve("img")));
+//Rutas BackEnd
 
-// Rutas Backend
-// app.use("/api/users", usersRouter);
-app.use("/api/login", loginRouter);
+app.use("/api/users", usersRouters);
+app.use("/api/login", loginRouter); 
+
+// Rutas FrontEnd
+app.use("/", express.static(path.join(__dirname, "views", "home")));
+app.use('/styles', express.static(path.join(__dirname, "views", "styles")));
+app.use('/verify/:id/:token', express.static(path.join(__dirname, "views", "verify")));
+app.use("/signup", express.static(path.join(__dirname, "views", "signup")));
+app.use("/login", express.static(path.join(__dirname, "views", "login")));
+app.use("/todos", express.static(path.join(__dirname, "views", "todos")));
+app.use("/components", express.static(path.join(__dirname, "views", "components")));
+app.use("/images", express.static(path.join(__dirname, "img")));
+
+//Morgan
+app.use(morgan('tiny'))
+
+
 
 module.exports = app;
