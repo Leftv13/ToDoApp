@@ -40,11 +40,11 @@ const validation = (input, isValid) =>{
 
     } else if (isValid) {
         input.classList.remove('outline-red-500', 'focus:outline-indigo-700', 'outline' );
-        input.classList.add('outline-green-500', 'outline-2');
+        input.classList.add('outline-green-500', 'outline-4');
 
     } else {
         input.classList.remove('outline-green-500', 'focus:outline-indigo-700', 'outline');
-        input.classList.add('outline-red-500', 'outline-2');
+        input.classList.add('outline-red-500', 'outline-4');
     }
 }
 

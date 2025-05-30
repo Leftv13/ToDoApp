@@ -1,4 +1,4 @@
-const textInfo = document.querySelector('#textInfo')
+const textInfo = document.getElementById('textInfo');
 
 
 (async () =>{
