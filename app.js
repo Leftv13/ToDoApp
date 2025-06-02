@@ -9,6 +9,8 @@ const mongoose = require("mongoose");
 const path = require("path");
 const loginRouter = require("./controllers/login");
 const usersRouters = require("./controllers/users"); 
+const todosRouter = require("./controllers/todos");
+const { userExtractor } = require("./middleware/auth");
 
 
 (async () => {
@@ -33,6 +35,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/users", usersRouters);
 app.use("/api/login", loginRouter); 
+app.use("/api/todos", userExtractor , todosRouter); 
 
 // Rutas FrontEnd
 app.use("/", express.static(path.join(__dirname, "views", "home")));

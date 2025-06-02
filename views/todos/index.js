@@ -146,7 +146,7 @@ ul.addEventListener('click', async e => {
 		})
 		todoCount();
 	} catch (error) {
-		// window.location.pathname = '/login'
+		window.location.pathname = '/login'
         console.log(error);
 	}
 })();
