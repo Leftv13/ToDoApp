@@ -12,6 +12,7 @@ const usersRouters = require("./controllers/users");
 const todosRouter = require("./controllers/todos");
 const { userExtractor } = require("./middleware/auth");
 const logoutRouter = require("./controllers/logout");
+const { MONGO_URI } = require("./config");
 
 
 (async () => {
