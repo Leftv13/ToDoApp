@@ -12,11 +12,12 @@ const usersRouters = require("./controllers/users");
 const todosRouter = require("./controllers/todos");
 const { userExtractor } = require("./middleware/auth");
 const logoutRouter = require("./controllers/logout");
+const { MONGO_URI } = require("./config");
 
 
 (async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI_TEST);
+    await mongoose.connect(MONGO_URI);
     console.log("Connected to MongoDB");
   } catch (error) {
     console.error("Error connecting to MongoDB:", error);
