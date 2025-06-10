@@ -1,5 +1,5 @@
 const PAGE_URL = process.env.NODE_ENV === 'production'
-    ? 'placeholder'
+    ? 'https://todoapp-bv2x.onrender.com'
     : process.env.LOCAL_URL;
 
 
