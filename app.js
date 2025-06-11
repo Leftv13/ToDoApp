@@ -13,6 +13,7 @@ const todosRouter = require("./controllers/todos");
 const { userExtractor } = require("./middleware/auth");
 const logoutRouter = require("./controllers/logout");
 const { MONGO_URI } = require("./config");
+const {PAGE_URL} = require("./config");
 
 
 (async () => {
@@ -26,7 +27,7 @@ const { MONGO_URI } = require("./config");
 
 //Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
+  origin: PAGE_URL,
   credentials: true
 }));
 app.use(cookieParser());

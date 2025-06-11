@@ -1,3 +1,5 @@
+const PAGE_URL = window.location.origin; // Get the current origin (protocol + hostname + port)
+
 const emailInput = document.querySelector("#email-input");
 const passwordInput = document.querySelector("#password-input");
 const form = document.querySelector("#form");
@@ -18,7 +20,7 @@ form.addEventListener("submit", async (event) => {
       email: emailInput.value,
       password: passwordInput.value,
     };
-    await axios.post("/api/login", user, { withCredentials: true });
+    await axios.post(`${PAGE_URL}/api/login`, user, { withCredentials: true });
     window.location.pathname = `/todos/`;
   } catch (error) {
     console.log(error);

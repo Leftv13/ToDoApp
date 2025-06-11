@@ -1,3 +1,4 @@
+const PAGE_URL = window.location.origin; // Get the current origin (protocol + hostname + port)
 
 //regEx
 
@@ -83,7 +84,7 @@ emailInput.addEventListener('input', e => {
             password: passwordInput.value,
         }
 
-        const {data} = await axios.post('http://127.0.0.1:3000/api/users', newUser);
+        const {data} = await axios.post(`${PAGE_URL}/api/users`, newUser);
        
         
         console.log(data.message); 
