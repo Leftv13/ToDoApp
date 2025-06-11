@@ -31,23 +31,48 @@ let emailValidation = false;
 let passwordValidation = false;
 let matchValidation = false;
 
-const validation = (input, isValid) =>{
+const validation = (input, isValid) => {
+  let isEnabled =
+    nameValidation && emailValidation && passwordValidation && matchValidation;
+  formBtn.disabled = !isEnabled;
+  if (isEnabled) {
+    formBtn.classList.remove("bg-indigo-300");
+    formBtn.classList.add("bg-indigo-700", "hover:bg-indigo-800", "cursor-pointer");
+  } else {
+    formBtn.classList.add("bg-indigo-300");
+    formBtn.classList.remove(
+      "bg-indigo-700",
+      "hover:bg-indigo-800",
+      "cursor-pointer"
+    );
+  }
 
-   formBtn.disabled = nameValidation && emailValidation && passwordValidation && matchValidation ? false : true;
- 
-    if (input.value === '') {
-        input.classList.remove('outline-green-500', 'outline-red-500', 'outline');
-        input.classList.add('focus:outline-indigo-700');
-
-    } else if (isValid) {
-        input.classList.remove('outline-red-500', 'focus:outline-indigo-700', 'outline' );
-        input.classList.add('focus:outline-green-500', 'outline-4');
-
-    } else {
-        input.classList.remove('outline-green-500', 'focus:outline-indigo-700', 'outline');
-        input.classList.add('focus:outline-red-500', 'outline-4');
-    }
-}
+  if (input.value === "") {
+    input.classList.remove(
+      "focus:ring-green-500",
+      "focus:border-green-500",
+      "focus:ring-red-500",
+      "focus:border-red-500"
+    );
+    input.classList.add("focus:ring-indigo-500", "focus:border-indigo-500");
+  } else if (isValid) {
+    input.classList.remove(
+      "focus:ring-red-500",
+      "focus:border-red-500",
+      "focus:ring-indigo-500",
+      "focus:border-indigo-500"
+    );
+    input.classList.add("focus:ring-green-500", "focus:border-green-500");
+  } else {
+    input.classList.remove(
+      "focus:ring-green-500",
+      "focus:border-green-500",
+      "focus:ring-indigo-500",
+      "focus:border-indigo-500"
+    );
+    input.classList.add("focus:ring-red-500", "focus:border-red-500");
+  }
+};
 
 // Events
 
