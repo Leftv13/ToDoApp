@@ -103,8 +103,8 @@ ul.addEventListener('click', async e => {
 		}
 
 		// Save in local storage
-		todoCount();
-		localStorage.setItem('todoList', ul.innerHTML);
+		// todoCount();
+		// localStorage.setItem('todoList', ul.innerHTML);
 	}
 });
 
@@ -146,7 +146,7 @@ ul.addEventListener('click', async e => {
 		})
 		todoCount();
 	} catch (error) {
-		// window.location.pathname = '/login'
+		window.location.pathname = '/login'
         console.log(error);
 	}
 })();

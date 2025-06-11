@@ -9,11 +9,15 @@ const mongoose = require("mongoose");
 const path = require("path");
 const loginRouter = require("./controllers/login");
 const usersRouters = require("./controllers/users"); 
+const todosRouter = require("./controllers/todos");
+const { userExtractor } = require("./middleware/auth");
+const logoutRouter = require("./controllers/logout");
+const { MONGO_URI } = require("./config");
 
 
 (async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI_TEST);
+    await mongoose.connect(MONGO_URI);
     console.log("Connected to MongoDB");
   } catch (error) {
     console.error("Error connecting to MongoDB:", error);
@@ -33,6 +37,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/users", usersRouters);
 app.use("/api/login", loginRouter); 
+app.use("/api/logout", logoutRouter); 
+app.use("/api/todos", userExtractor , todosRouter); 
 
 // Rutas FrontEnd
 app.use("/", express.static(path.join(__dirname, "views", "home")));
