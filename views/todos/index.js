@@ -103,7 +103,7 @@ ul.addEventListener('click', async e => {
 		}
 
 		// Save in local storage
-		// todoCount();
+		todoCount();
 		// localStorage.setItem('todoList', ul.innerHTML);
 	}
 });
